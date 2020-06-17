@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Control 2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+     .form-control.is-invalid {
+       background-image: none;
+      }
+      .container {
+       background-size: cover;
+       min-height: calc(100vh - 150px);
+        background-repeat: no-repeat;
+      }
+    </style>
+</head>
+<body>
+  <header class="header  bg-secondary justify-content-center align-items-center">
+   <section class="style-section flex-row justify-content-between align-items-center col-8 dFlex" >
+     <button type="button" class="btn btn-light col-0.7 showCreate">
+        <img src="icons/tag.png" alt="">
+     </button>
+     <section class="decoration-section col-1.5 d-flex">
+      <button type="button" class="strong btn btn-light  txt-stl col-3" style="border-radius: 5px 0 0 5Px;"><img src="icons/bold.png" alt=""></button>
+      <button type="button" class="em btn btn-light txt-stl  col-3 rounded-0"><img src="icons/italic.png" alt=""></button>
+      <button type="button" class="u btn btn-light txt-dec col-3 rounded-0 "><img src="icons/underline.png" alt=""></button>
+      <button type="button" class="del btn btn-light txt-dec col-3 " style="border-radius: 0 5px 5px 0;"><img src="icons/strike.png" alt=""></button>
+     </section>
+     <section class="align-section  d-flex col-2.5 justify-content-between">
+      <button type="button" class="left btn btn-light col-4" style="border-radius: 5px 0 0 5px;"><img src="icons/left.png" alt=""></button>
+       <button type="button" class="center btn btn-light col-4 rounded-0"><img src="icons/center.png" alt=""></button>
+      <button type="button" class="right btn btn-light col-4" style="border-radius: 0 5px 5px 0"><img src="icons/right.png" alt=""></button>
+    </section>
+    
+     <section class="font-style col-4.2 bg-success d-flex justify-content-between">
+     <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="border-radius: 5px 0 0 5px;">
+         <span style="font-size: larger">A</span>
+      </button>
+      <ul class="dropdown-menu bg-light" aria-labelledby="dropdownMenu1">
+          <li><button class="btn btn-light col-12 lst_fnt_family">Arial</button></li>
+          <li><button class="btn btn-light col-12 lst_fnt_family">Georgia</button></li>
+          <li><buttpn class="btn btn-light col-12 lst_fnt_family">Impact</buttpn></li>
+          <li><buttpn class="btn btn-light col-12 lst_fnt_family">Tahoma</buttpn></li>
+          <li><buttpn class="btn btn-light col-12 lst_fnt_family">Times New Roman</buttpn></li>
+          <li><buttpn class="btn btn-light col-12 lst_fnt_family">Verdana</buttpn></li>
+      </ul>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle rounded-0" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+         <i class="fas fa-text-height font-weight-normal"></i>
+        </button>
+        <ul class="dropdown-menu bg-light" aria-labelledby="dropdownMenu1">
+         <li><button class="btn btn-light col-12 lst_fnt_size text-left pl-4">12px</button></li>
+         <li><button class="btn btn-light col-12 lst_fnt_size text-left pl-4">14px</button></li>
+         <li><buttpn class="btn btn-light col-12 lst_fnt_size text-left pl-4">16px</buttpn></li>
+         <li><buttpn class="btn btn-light col-12 lst_fnt_size text-left pl-4">18px</buttpn></li>
+         <li><buttpn class="btn btn-light col-12 lst_fnt_size text-left pl-4">20px</buttpn></li>
+         <li><buttpn class="btn btn-light col-12 lst_fnt_size text-left pl-4">22px</buttpn></li>
+         <li><buttpn class="btn btn-light col-12 lst_fnt_size text-left pl-4">25px</buttpn></li>
+         <li><buttpn class="btn btn-light col-12 lst_fnt_size text-left pl-4">30px</buttpn></li>
+        </ul>
+      </div>
+        <button type="button" class="btn btn-light col-3 rounded-0" data-toggle="modal" data-target="#modal1"><img src="icons/palette.png" alt=""></button>
+        <button type="button" class="btn btn-light col-3" data-toggle="modal" data-target="#modal2" style="border-radius: 0 5px 5px 0 ;"><img src="icons/picture.png" alt=""></button>
+     </section>
+      <button type="button" class="btn btn-light col-0.8" data-toggle="modal" data-target="#signModal"><img src="icons/lock.png" alt=""></button>
+</section>
+    <div class="create-section col-2 none">
+       <button type="button" class="btn btn-light col-3 showStyle" style="border-radius: 5px 0 0 5px;"><i class="fas fa-save"></i></button>
+       <button type="button" class="btn btn-light col-3 rounded-0" data-toggle="modal" data-target="#modalTbl"><i class="fas fa-table"></i></button>
+       <button type="button" class="btn btn-light col-3 rounded-0" data-toggle="modal" data-target="#olModal"><i class="fas fa-list-ol" ></i></button>
+       <button type="button" class="btn btn-light col-3" style="border-radius: 0 5px 5px 0" data-toggle="modal" data-target="#ulModal"><i class="fas fa-list-ul"></i></button>
+   </div>
+</header> 
+<main>
+  <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog1" role="document">
+      <div class="modal-content modal-content1">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Choose text color</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body modal-body1">
+        <div class="colContainer col-12 pl-3 pr-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog2" role="document">
+      <div class="modal-content modal-content2">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Choose background color or image</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Colors</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Images</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Files</a>
+                </li>
+              </ul>
+                <div class="tab-content" id="myTabContent">
+                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="colors-block  col-12"></div></div>
+                   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <div class="images-block col-12 colBox"></div></div>
+                   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><div class="custom-file">
+                  <input type="file" class="custom-file-input file-btn" id="customFile"  accept='image/*'>
+                  <label class="custom-file-label" for="customFile">Choose file</label>
+                 </div>
+                </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title col-12 text-center" id="exampleModalLabel">Sign In</h5>
+      </div>
+      <div class="modal-body">
+        <form class="loginForm">
+          <div class="form-group">
+            <input type="text" class="form-control login-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Login here...">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control pass-input" id="exampleInputPassword1" placeholder="Password here...">
+            <small class="val-message text-danger"></small>
+          </div>
+          <button type="button" class="btn btn-secondary col-12 sign_btn">Sign In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modalTbl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog2" role="document">
+    <div class="modal-content modal-content2">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create table</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="formT">
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="validationServer01">Count TR:</label>
+              <input type="text" class="form-control count-tr" id="validationServer01" placeholder="Type here...">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationServer02">Count TD:</label>
+              <input type="text" class="form-control count-td" id="validationServer02" placeholder="Type here...">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationServer02">Width of TD:</label>
+              <input type="text" class="form-control td-width" id="validationServer02" placeholder="Type here...">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationServer03">Height of TD:</label>
+              <input type="text" class="form-control td-height" id="validationServer03" placeholder="Type here...">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="validationServer03">Width of border:</label>
+              <input type="text" class="form-control td-border" id="validationServer03" placeholder="Type here..." > 
+              <div class="invalid-txt text-danger none">
+                <small>
+                  invalid value
+                </small>
+              </div>
+            </div>
+            <div class="form-group col-md-3 mb-3">
+              <label for="exampleFormControlSelect1">Style of border:</label>
+              <select class="form-control style-sel" id="exampleFormControlSelect1">
+                <option  disabled selected value="" class="sel">choose style</option>
+                <option value="dotted"> dotted </option>
+                <option value="dashed">dashed</option>
+                <option value="solid">solid</option>
+                <option value="double">double</option>
+                <option value="groove">groove</option>
+                <option value="ridge">ridge</option>
+                <option value="inset">inset</option>
+                <option value="outset">outset</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3 mb-3">
+              <label for="exampleFormControlSelect1">Color of border:</label>
+              <select class="form-control color-sel" id="exampleFormControlSelect1">
+                <option  disabled selected  value="">choose color</option>
+                <option value="black">black</option>
+                <option value="red">red</option>
+                <option value="green">green</option>
+                <option value="blue">blue</option>
+                <option value="yellow">yellow</option>
+                <option value="white">white</option>
+                <option value="gray">gray</option>
+                <option value="pink">pink</option>
+              </select>
+            </div>
+          </div>
+        <div class="row">
+            <div class="col-md-6">
+               <button class="btn btn-danger col-12 tbl-rst" type="button">Reset</button>
+               </div>
+                <div class="col-md-6">
+                 <button class="btn btn-success col-12 createBtn" type="button">Create table</button>
+               </div>
+             </div>        
+           </div>
+          </div>
+       </form>
+     </div>
+  </div>
+</div>
+<div class="modal fade" id="olModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+  <form class="formOl">
+    <div class="form-group">
+      <label for="exampleInputPassword1">Count li item:</label>
+      <input type="text" class="form-control login-input count_ol" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Type here...">
+    </div>
+      <label for="exampleFormControlSelect1">Type mark of list:</label>
+      <select class="form-control ol-select" id="exampleFormControlSelect1">
+        <option value="">choose Ol type mark</option>
+        <option value="A">A</option>
+        <option value="a">a</option>
+        <option value="i">i</option>
+        <option value="I">I</option>
+        <option value="1">1</option>
+      </select>
+      <div class="inv_txt text-danger none"><small>invalid value</small></div>
+  </form>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-danger col-12  reset-ol" type="button">Reset</button>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-success col-12  olBtn" type="button">Create list</button>
+    </div>
+  </div>      
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ulModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body"> 
+  <form class="formUl">
+    <div class="form-group">
+      <label for="exampleInputPassword1">Count li item:</label>
+      <input type="text" class="form-control login-input count_ul" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Type here...">
+    </div>
+    <label for="exampleFormControlSelect1">Type mark of list:</label>
+    <select class="form-control ul-select" id="exampleFormControlSelect1">
+        <option value="">choose Ul type mark</option>
+        <option value="circle">circle</option>
+        <option value="disc">disc</option>
+        <option value="squere">square</option>
+      </select>
+      <div class="inv-text text-danger none"><small>invalid value</small></div>
+  </form>
+  <br>
+    <div class="row">
+       <div class="col-md-6">
+         <button class="btn btn-danger col-12  reset-ul" type="button">Reset</button>
+       </div>
+       <div class="col-md-6">
+          <button class="btn btn-success col-12  ulBtn" type="button">Create list</button>
+        </div>
+     </div>      
+   </div>
+    </div>
+  </div>
+</div>
+<div class="container col-12  pt-5 pl-5">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt </p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt </p>
+</div>
+<textarea name="" id="textarea" cols="30" rows="10" class="col-9 mt-5 none">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt </p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis quibusdam officia assumenda maiores deserunt </p>
+</textarea>
+</main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
