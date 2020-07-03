@@ -1,7 +1,12 @@
-const colors = ['mediumaquamarine', 'seagreen', 'lightgreen', 'green', 'dodgerblue', 'royalblue','purple', 'rebeccapurple', 'rgb(20, 20, 82)', 'rgb(51, 0, 26)', '#ffff66', 'rgb(255, 204, 102)', 'rgb(255, 153, 51)', 'rgb(230, 115, 0)', 'rgb(204, 82, 0)', 'rgb(179, 71, 0)', '#f2f2f2', 'rgb(217, 217, 217)', 'rgb(153, 153, 153)', 'rgb(89, 89, 89)', 'black']
+const colors = ['mediumaquamarine', 'seagreen', 'lightgreen', 'green', 'dodgerblue', 
+'royalblue','purple', 'rebeccapurple', 'rgb(20, 20, 82)', 'rgb(51, 0, 26)', '#ffff66', 
+'rgb(255, 204, 102)','rgb(255, 153, 51)', 'rgb(230, 115, 0)', 'rgb(204, 82, 0)', 
+'rgb(179, 71, 0)', '#f2f2f2', 'rgb(217, 217, 217)', 'rgb(153, 153, 153)', 'rgb(89, 89, 89)', 'black']
+
 let getSel = n => document.querySelector(n);
 let create = n => document.createElement(n);
 let colors_block = getSel('.colors-block');
+
 let showInvBd = function(n) {
     n.addClass('is-invalid')
 }
@@ -35,7 +40,8 @@ $('.file-btn').change(function(file){
 })
 
 createColorBox(colContainer);
-const images = ['images/1.jpg', 'images/2.jpg', 'images/3.jpg', 'images/4.jpg','images/5.jpg', 'images/6.jpg', 'images/7.jpg', 'images/8.jpg', 'images/9.jpg']
+const images = ['images/1.jpg', 'images/2.jpg', 'images/3.jpg', 'images/4.jpg','images/5.jpg', 
+'images/6.jpg', 'images/7.jpg', 'images/8.jpg', 'images/9.jpg']
 for(let i = 0; i < 9; i++) {
    let box = create('div');
    box.classList.add('img-box');
@@ -56,7 +62,8 @@ for (let i = 0; i < $('.count-tr').val(); i++) {
    for(let i = 0; i < $('.count-td').val(); i++) {
     td = create('td');
     td.innerText = 'TD';
-    td.style = `width:${$('.td-width').val()}px; height:${$('.td-height').val()}px; border: ${$('.td-border').val()}px ${$('.style-sel').val()} ${$('.color-sel').val()}`;
+    td.style = `width:${$('.td-width').val()}px; height:${$('.td-height').val()}px; border: 
+    ${$('.td-border').val()}px ${$('.style-sel').val()} ${$('.color-sel').val()}`;
     tr.appendChild(td)
   }
  tbody.appendChild(tr)
@@ -101,14 +108,21 @@ $('.colContainer div').click(function() {
 })
 
 $('.showCreate').click(function() {
-  $('.style-section').removeClass('dFlex').addClass('none'), $('.container').addClass('none');
-  $('.create-section').removeClass('none').addClass('dFlex'), $('#textarea').removeClass('none')
+  $('.style-section').removeClass('dFlex').addClass('none');
+  $('.container').addClass('none');
+  $('.create-section').removeClass('none').addClass('dFlex');
+  $('#textarea').removeClass('none')
+  
 })
 
   $('.showStyle').click(function() {
-  $('.style-section').removeClass('none').addClass('dFlex'), $('.container').removeClass('none'), $('.container').html($('#textarea').val());
-  $('.create-section').removeClass('dFlex').addClass('none'), $('#textarea').addClass('none')
+    $('.style-section').removeClass('none').addClass('dFlex');
+    $('.container').removeClass('none');
+    $('.container').html($('#textarea').val());
+    $('.create-section').removeClass('dFlex').addClass('none');
+    $('#textarea').addClass('none')
 })
+
 const regPassword = /^admin$/;
 
 $('.sign_btn').click(function(e) {
@@ -118,26 +132,41 @@ $('.sign_btn').click(function(e) {
     if($(this).val() == 0) $('.val-message').text('Value is empty'), showInvBd($(this));
     else if (regPassword.test($(this).val()))  $(this).removeClass('is-invalid');
     else $('.val-message').text('check your email or password'), showInvBd($(this))
-  })
+ })
  if(regPassword.test(log.val()) && regPassword.test(pass.val())) {
     $('.val-message').text('');
     $('.loginForm input').val('')
     $("#signModal").modal('hide')
    }
  })
+
+
 const regTbl = /^\d+$/;
 
 $('.createBtn').click(function() {
   let  values = [];
   $('#formT input').each(function() {
     values.push($(this).val());
-    if(!regTbl.test($(this).val())) showInvBd($(this)),  $('.invalid-txt').removeClass('none')
+    if(!regTbl.test($(this).val())) {
+       showInvBd($(this)); 
+       $('.invalid-txt').removeClass('none')
+    }
     else $(this).removeClass('is-invalid')
   })  
-  if($('.color-sel').val() == null) showInvBd($('.color-sel')), $('.invalid-txt').removeClass('none')
+
+  if($('.color-sel').val() == null) {
+     showInvBd($('.color-sel')); 
+     $('.invalid-txt').removeClass('none')
+  }
   else $('.color-sel').removeClass('is-invalid');
-  if($('.style-sel').val() == null) showInvBd($('.style-sel')),  $('.invalid-txt').removeClass('none')
+  if($('.style-sel').val() == null) {
+    showInvBd($('.style-sel')); 
+    $('.invalid-txt').removeClass('none')
+  }
+
   else $('.style-sel').removeClass('is-invalid')
+
+
   if(values.every(n => regTbl.test(n)) && $('.color-sel').val() !== null && $('.style-sel').val() !== null) {
     createTbl() , 
     $('.tbl-rst').trigger('click')
@@ -145,12 +174,14 @@ $('.createBtn').click(function() {
     }
   })
 
+
 $('.tbl-rst').click(function() {
   $('#formT option').prop('selected', function(){return this.defaultSelected})
   $('#formT').trigger('reset');
   $('.invalid-txt').addClass('none')
   $('#formT input, #formT select').removeClass('is-invalid')
 })
+
 
 $('.olBtn').click(function() {
   if(!regTbl.test($('.count_ol').val())) showInvBd($('.count_ol'));
@@ -170,6 +201,7 @@ $('.reset-ol').click(function() {
   $('.formOl input, .formOl select').removeClass('is-invalid');
   $('.inv_txt').addClass('none')
 })  
+
 
 $('.ulBtn').click(function() {
   if(!regTbl.test($('.count_ul').val())) showInvBd($('.count_ul'));
@@ -192,7 +224,8 @@ $('.reset-ul').click(function() {
 
 $('.decoration-section button').click(function() {
   let arr =  $(this).attr('class').split(' ');
-  $('.container').toggleClass(`${arr[0]}` )
+  $('.container').toggleClass(`${arr[0]}`)
+
 })
 
 $('.align-section button').click(function() {
@@ -201,6 +234,7 @@ $('.align-section button').click(function() {
 })
 
   let lst_fnt_size = document.querySelectorAll('.lst_fnt_size');
+
 lst_fnt_size.forEach(function(li) {
  li.style.height = `calc(${this.innerText} + 15px)`;
  li.style.fontSize = li.innerText;
@@ -208,6 +242,7 @@ lst_fnt_size.forEach(function(li) {
 })
 
 let lst_fnt_family = document.querySelectorAll('.lst_fnt_family');
+
   lst_fnt_family.forEach(function(li) {
   li.style.fontFamily = li.innerText;
   li.style.height = '30px';
